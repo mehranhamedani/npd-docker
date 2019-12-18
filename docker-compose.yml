@@ -1,0 +1,23 @@
+version: "3.4"
+
+services:
+  npd-db:
+    build: ./db/
+    image: npd-db
+    container_name: npd-db
+
+  npd-api:
+    build: ./api/
+    image: npd-api
+    links:
+      - npd-db:npd-db
+    container_name: npd-api
+
+  npd-nginx:
+    build: ./nginx/
+    image: npd-nginx
+    links:
+      - npd-api:npd-api
+    ports:
+      - "80:80"
+    container_name: npd-nginx
