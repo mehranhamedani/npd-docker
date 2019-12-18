@@ -6,7 +6,7 @@ WORKDIR /home
 
 RUN git clone https://github.com/mehranhamedani/npd-api.git
 
-WORKDIR /home/npd
+WORKDIR /home/npd-api
 
 RUN npm install
 
